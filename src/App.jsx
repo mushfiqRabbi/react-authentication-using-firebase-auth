@@ -1,7 +1,8 @@
 import React from "react";
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import Layout from "./components/Layout";
 import Register from "./routes/Register";
+import Home from "./routes/Home";
 
 export default function App() {
   return (
@@ -9,7 +10,8 @@ export default function App() {
       <Routes>
         <Route element={<Layout />}>
           <Route path="/">
-            <Route path="home"></Route>
+            <Route index element={<Navigate to="home" />} />
+            <Route path="home" element={<Home />}></Route>
             <Route path="profile"></Route>
             <Route path="login"></Route>
             <Route path="register" element={<Register />}></Route>

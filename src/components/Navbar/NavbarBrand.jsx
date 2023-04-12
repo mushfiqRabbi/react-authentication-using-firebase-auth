@@ -7,7 +7,7 @@ export default function NavbarBrand() {
   return (
     <>
       <Link
-        to={`/${location.pathname}`}
+        to={`${location.pathname}`}
         className="navbar-brand text-capitalize d-md-none"
       >
         {location.pathname.slice(1)}
