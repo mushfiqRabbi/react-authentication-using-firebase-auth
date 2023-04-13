@@ -37,7 +37,7 @@ export default function Register() {
 
   return (
     <>
-      <div className="container col-md-6 my-5">
+      <div className="container col-md-6">
         <div
           className={`alert alert-danger alert-dismissible fade ${
             showAlert ? "show" : "hide"
