@@ -8,12 +8,12 @@ import Profile from "./routes/Profile";
 import Login from "./routes/Login";
 
 export default function App() {
-  const { currentUser, loading } = useContext(AuthContext);
+  const { currentUser, loading, repoName } = useContext(AuthContext);
   return (
     <>
       <Routes>
         <Route element={<Layout />}>
-          <Route path="/test-app">
+          <Route path={`/${repoName}/`}>
             <Route index element={<Navigate to="home" />} />
             <Route path="home" element={<Home />}></Route>
             <Route

@@ -13,6 +13,8 @@ export default function AuthProvider({ children }) {
   const [currentUser, setCurrentUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
+  const repoName = "test-app";
+
   const signUpUser = async (email, password) => {
     try {
       return await createUserWithEmailAndPassword(auth, email, password);
@@ -47,7 +49,14 @@ export default function AuthProvider({ children }) {
   return (
     <>
       <AuthContext.Provider
-        value={{ currentUser, loading, signUpUser, signInUser, signOutUser }}
+        value={{
+          currentUser,
+          loading,
+          signUpUser,
+          signInUser,
+          signOutUser,
+          repoName,
+        }}
       >
         {children}
       </AuthContext.Provider>
