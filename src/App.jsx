@@ -15,20 +15,20 @@ export default function App() {
         <Route element={<Layout />}>
           <Route path={`/${repoName}/`}>
             <Route index element={<Navigate to="home" />} />
-            <Route path="home" element={<Home />}></Route>
+            <Route path={`/${repoName}/home`} element={<Home />}></Route>
             <Route
-              path="profile"
+              path={`/${repoName}/profile`}
               element={currentUser ? <Profile /> : <Navigate to={"/login"} />}
             ></Route>
             <Route
-              path="login"
+              path={`/${repoName}/login`}
               element={
                 !loading &&
                 (currentUser ? <Navigate to="/profile" /> : <Login />)
               }
             ></Route>
             <Route
-              path="register"
+              path={`/${repoName}/register`}
               element={
                 !loading &&
                 (currentUser ? <Navigate to="/profile" /> : <Register />)
