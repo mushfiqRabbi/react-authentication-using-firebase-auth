@@ -15,7 +15,7 @@ export default function App() {
         <Route element={<Layout />}>
           <Route path={`/${repoName}/`}>
             <Route index element={<Navigate to="home" />} />
-            <Route path={`/${repoName}/home`} element={<Home />}></Route>
+            <Route path="/home" element={<Home />}></Route>
             <Route
               path={`/${repoName}/profile`}
               element={currentUser ? <Profile /> : <Navigate to={"/login"} />}
