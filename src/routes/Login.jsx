@@ -3,23 +3,17 @@ import { useContext } from "react";
 import { AuthContext } from "../contexts/AuthContext";
 import { useNavigate } from "react-router-dom";
 
-export default function Register() {
-  const { signUpUser } = useContext(AuthContext);
+export default function Login() {
+  const { signInUser } = useContext(AuthContext);
   const email = useRef(null);
   const password = useRef(null);
-  const confirmPassword = useRef(null);
   const [showAlert, setShowAlert] = useState(false);
   const [msg, setMsg] = useState("placeholder message here");
   const navigate = useNavigate();
 
-  const handleSignUp = async (e) => {
+  const handleSignIn = async (e) => {
     e.preventDefault();
-    if (password.current.value !== confirmPassword.current.value) {
-      setMsg("passwords do not match !");
-      setShowAlert(true);
-      return;
-    }
-    const response = await signUpUser(
+    const response = await signInUser(
       email.current.value,
       password.current.value
     );
@@ -49,9 +43,9 @@ export default function Register() {
         <div className="card w-100">
           <div className="card-body">
             <div className="card-title text-center">
-              <h1>Sign Up</h1>
+              <h1>Sign In</h1>
             </div>
-            <form onSubmit={handleSignUp}>
+            <form onSubmit={handleSignIn}>
               <div className="mb-3">
                 <label htmlFor="email" className="form-label">
                   Email
@@ -74,19 +68,8 @@ export default function Register() {
                   ref={password}
                 />
               </div>
-              <div className="mb-3">
-                <label htmlFor="re_password" className="form-label">
-                  Password
-                </label>
-                <input
-                  type="password"
-                  id="re_password"
-                  className="form-control"
-                  ref={confirmPassword}
-                />
-              </div>
               <div className="container mt-4">
-                <button className="btn btn-primary col-12">Register</button>
+                <button className="btn btn-primary col-12">Login</button>
               </div>
             </form>
           </div>
