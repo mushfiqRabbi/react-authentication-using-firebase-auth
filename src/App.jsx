@@ -8,27 +8,27 @@ import Profile from "./routes/Profile";
 import Login from "./routes/Login";
 
 export default function App() {
-  const { currentUser, loading, repoName } = useContext(AuthContext);
+  const { currentUser, loading } = useContext(AuthContext);
   return (
     <>
       <Routes>
         <Route element={<Layout />}>
-          <Route path={`/${repoName}/`}>
+          <Route path="/">
             <Route index element={<Navigate to="home" />} />
-            <Route path="/home" element={<Home />}></Route>
+            <Route path="home" element={<Home />}></Route>
             <Route
-              path={`/${repoName}/profile`}
+              path="profile"
               element={currentUser ? <Profile /> : <Navigate to={"/login"} />}
             ></Route>
             <Route
-              path={`/${repoName}/login`}
+              path="login"
               element={
                 !loading &&
                 (currentUser ? <Navigate to="/profile" /> : <Login />)
               }
             ></Route>
             <Route
-              path={`/${repoName}/register`}
+              path="register"
               element={
                 !loading &&
                 (currentUser ? <Navigate to="/profile" /> : <Register />)

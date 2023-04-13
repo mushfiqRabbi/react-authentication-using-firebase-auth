@@ -6,13 +6,14 @@ import "bootstrap/dist/js/bootstrap.bundle.min";
 
 import { BrowserRouter } from "react-router-dom";
 import AuthProvider from "./contexts/AuthContext";
+import { HashRouter } from "react-router-dom";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <AuthProvider>
-      <BrowserRouter>
+      <HashRouter>
         <App />
-      </BrowserRouter>
+      </HashRouter>
     </AuthProvider>
   </React.StrictMode>
 );
