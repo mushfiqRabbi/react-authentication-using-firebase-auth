@@ -31,7 +31,7 @@ export default function Login() {
 
   return (
     <>
-      <div className="container col-md-6 my-5">
+      <div className="container col-md-6 my-5 my-md-0">
         <div
           className={`alert alert-danger alert-dismissible fade ${
             showAlert ? "show" : "hide"
